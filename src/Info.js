@@ -5,7 +5,12 @@ const Info = () => {
     const [nickname, setNickname] = useState('');
 
     useEffect(() => {
-        console.log('마운트 될 때만 실행');
+        console.log('effect');
+        console.log(name);
+        return () => {
+            console.log('cleanup');
+            console.log(name);
+        };
     }, []);
 
     const onChangeName = e => {
