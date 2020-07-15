@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 //import Say from './Say';
 //import EventPractice from './EventPractice';
 //import IterationSample from './IterationSample';
-//import Counter from './Counter';
-import Info from './Info';
+import Counter from './Counter';
+//import Info from './Info';
 
 const App = () => {
   const [visible, setVisible] = useState(false);
@@ -13,7 +13,7 @@ const App = () => {
         {visible ? '숨기기' : '보이기'}
       </button>
       <hr />
-      {visible && <Info />}
+      {visible && <Counter />}
     </div>
   );
 };
