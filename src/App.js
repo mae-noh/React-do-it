@@ -2,11 +2,11 @@ import React from 'react';
 //import Say from './Say';
 //import EventPractice from './EventPractice';
 //import IterationSample from './IterationSample';
-//import Info from './Info';
-import Counter from './Counter';
+//import Counter from './Counter';
+import Info from './Info';
 
 const App = () => {
-  return <Counter />;
+  return <Info />;
 };
 
 export default App;
