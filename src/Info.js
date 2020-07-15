@@ -1,25 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useReducer } from 'react';
+
+function reducer(state, action) {
+    return {
+        ...state,
+        [action.name]: action.value
+    };
+}
 
 const Info = () => {
-    const [name, setName] = useState('');
-    const [nickname, setNickname] = useState('');
 
-    useEffect(() => {
-        console.log('effect');
-        console.log(name);
-        return () => {
-            console.log('cleanup');
-            console.log(name);
-        };
-    }, []);
+    const [state, dispatch] = useReducer(reducer, {
+        name: '',
+        nickname: ''
+    });
 
-    const onChangeName = e => {
-        setName(e.target.value);
-    };
+    const { name, nickname } = state;
 
-    const onChangeNickname = e => {
-        setNickname(e.target.value);
-    };
+    const onChange = e => {
+        dispatch(e.target);
+    }
 
     return (
         <div>
@@ -28,14 +27,14 @@ const Info = () => {
                 name="name"
                 value={name}
                 placeholder="이름을 입력하세요."
-                onChange={onChangeName}
+                onChange={onChange}
             />
             <input
                 type="text"
                 name="nickname"
                 value={nickname}
                 placeholder="닉네임을 입력하세요."
-                onChange={onChangeNickname}
+                onChange={onChange}
             />
             <h1>이름:{name} </h1>
             <h1>닉네임:{nickname}</h1>
